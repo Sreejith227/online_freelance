@@ -1,0 +1,75 @@
+{% extends 'base.html' %}{% block content %}
+
+<section class="white" style="min-height:100vh">
+  <div>
+   
+      <h1 class="poppins text-center pt-5 fw-bold text-black"><strong>JOBSEEKER</strong></h1>
+    </a>
+  </div>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card shadow">
+          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height: 200px">
+            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
+    
+              <div>
+                <a href="{% url 'user:profile_update' user.profilemodel.id %}" class="day">
+                  <button type="button" class="btn btn-success padding" data-mdb-ripple-color="dark" style="z-index: 1">
+                Edit profile
+              </button></a>
+                </div>
+              
+              {% if user.profilemodel %}
+              <img id="profileImage" src="{{user.profilemodel.image.url}}" alt="Generic placeholder image"
+                class="img-fluid img-thumbnail mt-4 mb-2" style="height:auto;"/>
+
+                
+            </div>
+            
+            <div class="ms-3" style="margin-top: 130px">
+              <h5 class="text-capitalize">{{user.profilemodel.user}}</h5>
+              <p>{{user.profilemodel.first_name}}</p>
+            </div>
+          </div><br><br><br><br><br><br>
+         
+          <div class="card-body container-flex text-black" >
+            <div class="mb-5">
+              <div class="p-4" style="background-color:white">
+                <p class="font-italic mb-1 text-capitalize">
+                  First name : {{user.profilemodel.first_name}}</p>
+                <p class="font-italic mb-1 text-capitalize">
+                  Last name : {{user.profilemodel.last_name}}</p>
+                <p class="font-italic mb-1 text-capitalize">
+                  Gender : {{user.profilemodel.gender}}</p>
+                <p class="font-italic mb-1">
+                  Phone number : {{user.profilemodel.phone_number}}</p>
+               
+                </div>
+              </div>
+
+            
+            {% else %}
+            <tr>
+              <td colspan="4">
+                <a href="{% url 'user:profile_create' %}" class="text-light">
+                  Create Profile
+                </a>
+              </td>
+            </tr>
+            {% endif %}
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</section>
+
+
+{% endblock content %}
+
+              

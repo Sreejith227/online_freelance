@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %} {% block content %}
+    <ul class="pagination">
+      <li class="page-item">
+        
+      </li>
+      <li class="page-item"><a class="page-link" href="{% url 'user:freelancersignup' %}">Personnel info about you</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'user:freelancerproinfo' %}">Professional info and resume</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'user:freelancerlinkacc' %}">Link accounts</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'user:freelancerpricing' %}">Pricing & Delivery time</a></li>
+        
+      </li>
+    </ul>
+  </nav>
+  
+  <div class="progress">
+    <div class="progress-bar" style="width:70%">70%</div>
+  </div> <br><br>
+  <section class="min-height:100vh">
+
+    <h3 class="mb-5 text-uppercase fw-bold">LINK YOUR SOCIALS HERE</h3>
+<div class="col">
+    <a href="#" class="fb btn">
+      <i class="fa-brands fa-facebook"></i>  <b>facebook</b></label>
+     
+    </a><br>
+    <a href="#" class="twitter btn">
+      <i class="fa-brands fa-twitter"></i>  <b>Twitter</b>
+    </a><br>
+    <a href="#" class="google btn">
+      <i class="fa-brands fa-google-plus-g"></i> <b>Google+</b>
+    </a><br>
+    <a href="#" class="instagram btn">
+      <i class="fa-brands fa-square-instagram"></i>  <b>instagram</b>
+      </a>
+    </a>
+    
+  </div>
+  </section>
+  {% endblock content %}
+  

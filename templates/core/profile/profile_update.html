@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<section class="py-5" style="min-height:100vh" id="editprof">
+    <div class="container">
+      <div class="row">
+        <div class="col"  style="text-align:center">
+        <h2><label class="fw-bold">Profile Update</h2></label>
+          <hr />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="card shadow" style="height:max-content">
+            <div class="card-body">
+              <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                  <tbody>
+                    {{form.as_p}}
+                  </tbody>
+                </table>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% endblock content %}

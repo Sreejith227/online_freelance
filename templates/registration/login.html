@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<div class="container-flex bg-light vh-100">
+  <div class="row justify-content-center align-items-center h-50">
+    <div class="col-lg-6">
+      <div class="card shadow" style="height:auto">
+        <div class="card-body">
+          <h1 class="card-title fw-bold text-center text-dark">Login</h1>
+          <form action="" method="post">
+            {% csrf_token %} {{form.as_p}}
+            <div class="d-flex justify-content-between mb-3">
+              <a href="" class="link-primary" style="font-size:15px;">Forgot Password?</a>
+              <a href="{% url 'user:user_signup' %}" class="link-primary"style="font-size:15px;">Create Account?</a>
+            </div>
+          <div  class="text-center"><button class="btn btn-success">Login</button></div> 
+          </form>
+        </div>
+        <div class="text-center">
+        
+          <p>or sign up with:</p>
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-facebook-f" style="color:green"></i>
+          </button>
+      
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-google" style="color:green"></i>
+          </button>
+      
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-twitter" style="color:green"></i>
+          </button>
+      
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-github" style="color:green"></i>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% endblock content %}

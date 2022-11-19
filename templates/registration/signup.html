@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="container-flex" id="signup">
+<div class="container-fluid  sign  vh-100">
+  <div class="row justify-content-center align-items-center h-20">
+    <div class="col-lg-8">
+      <div class="card shadow" style="height:auto">
+        <div class="card-body">
+          <h1 class="card-title fw-bold text-black text-center" style-="color:black">Signup</h1><br>
+          <form action="" method="post">
+            {% csrf_token %} {{form.as_p}}
+            <div class="d-flex justify-content-between mb-3">
+              <a href="{% url 'user:user_login' %}" class="link-primary" style="font-size:15px">Already have an account?</a>
+            </div>
+          <div style="text-align:right">  <button class="btn btn-success">Signup</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock content %}
+
+
+
+
