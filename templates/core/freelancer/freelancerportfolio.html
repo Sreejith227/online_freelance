@@ -1,284 +1,256 @@
 {% extends 'base.html' %} {% block content %}
-
-<title>Portfolio</title>
-</head>
-
-<body>
-  <div class="background">
-    <div class="intro-right">
-      <div class="container-fluid full-height">
+<section>
+  <h1>Portfolio</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {% if user.freelancermodel %}
+        <!-- <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">{{user.freelancermodel.current_position}}</h4>
+            <p class="card-text">{{user.freelancermodel.about_me}}</p>
+            <p class="card-text">Skills</p>
+            <div class="freelancer--skills">
+              <div class="row row-cols-1 row-cols-lg-4 g-2">
+              {% for skill in user.freelancermodel.skills.all %}
+              <div class="col-auto">
+                <span class="badge rounded-pill text-bg-warning px-3 py-2">{{skill}}</span>
+              </div>
+              {% empty %}
+              <div class="col">
+                <p class="card-text">No skills are added!</p>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+        {% else %}
+        <a href="" class="btn btn-primary">Become a Freelancer</a>
+        {% endif %} -->
+        <!-- </div>
+    </div>
+  </div> -->
+        <!-- profile picture -->
+        <div class="container">
+          <div class="col-md-3 row-cols-8 px-4">
+            <div class="align-items-center-right">
+              <img src="{{user.profilemodel.image.url}}" alt="Avatar" class="avatar"
+                style="width: 250px; height: 250px" />
+            </div>
+          </div>
+        </div>
         <div class="row text-center align-items-center full-height">
           <div class="col">
-
-            <p class="display-6 fw-bold" style="font-weight:bold">Sandeep nandi</p>
-            <p class="fw-bold" style="font-weight:bold">Java developer</p><br>
-            <div class="container-fluid">
-              <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button">
-                <i class="fa-brands fa-facebook"></i></a>
-              <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i
-                  class="fab fa-twitter"></i></a>
-              <a class="btn text-white btn-floating m-1" style="background-color: darkred;" href="#!" role="button"><i
-                  class="fab fa-google"></i></a>
-              <a class="btn text-green btn-floating m-1" style="background-color:red;" href="#!" role="button"><i
-                  class="fab fa-instagram"></i></a>
-              <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i
-                  class="fab fa-linkedin-in"></i></a>
-
-
-
-            </div>
-            <!-- Right -->
-            </section><br>
-            <!-- Section: Social media -->
-            <div class="container-fluid">
-              <button type="button" class="btn btn-outline-success rounded-pill" style="width:250px">Message</button>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--ORDER BOX  -->
-    <div class="align-items-center-right">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-left h-100">
-          <div class="col-md-10 col-lg-6 col-xl-6">
-            <div class="card card-stepper" style="border-radius: 5px;">
-              <div class="card-header p-4">
-                <div class="d-flex justify-content-between align-items-right">
-                  <div>
-
-                    <p class="text-muted mb-0"> Place On <span class="text-body">12,March 2019</span> </p>
-                  </div>
-                  <div class="container" style="color:gold"><i class="fa-solid fa-star"></i><i
-                      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                      class="fa-solid fa-star"></i></div>
-                  <div class="container fw-bold" style="font-style:italic; font-size:medium">5 star seller</div>
-                  <div class="container" style="font-style:bold; font-size:larger"><i
-                      class="fa-solid fa-indian-rupee-sign"></i><strong>.2300</i></strong></div>
-
-                </div>
-
-                <br>
-                <div class="container" style="font-size:smaller"><i>Java code + html</i></div>    
-                <div class="container_fluid fw-bold"><a href="{% url 'core:payment' %}"><button type="button" class="btn btn-success">Order now</button>
-                </a>
-
-
-
-                </div>
+            <h2 class="display-5 fw-bold text-uppercase">{{user.profilemodel.first_name}}
+              {{user.profilemodel.last_name}}</h2>
+            <p class="display-7 text-capitalize" style="font-weight: bold">
+              {{user.freelancermodel.current_position}}
+            </p>
+            <!-- section social media -->
+            <section class="container-flex">
+              <div class="container-fluid">
+                <a class="btn text-white btn-floating m-1" style="background-color: #3b5998" href="#!" role="button">
+                  <i class="fa-brands fa-facebook"></i></a>
+                <a class="btn text-white btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+                <a class="btn text-white btn-floating m-1" style="background-color: darkred" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+                <a class="btn text-green btn-floating m-1" style="background-color: red" href="#!" role="button"><i
+                    class="fab fa-instagram"></i></a>
+                <a class="btn text-white btn-floating m-1" style="background-color: #0082ca" href="#!" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
               </div>
-
-              <div class="card-body p-4">
-                <div class="d-flex flex-row mb-4 pb-2">
-
-
-                  <p class="text-muted" style="font-size:small">Tracking Status on: <span class="text-body">11:30pm, Today</span></p>
-                  <p class="container" style="font-size:bold"><span class="text-body">Delivery in 2 days</span></p>
-                
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  </section>
-  <!-- ORDER BOX END -->
-        <body style="text-align: left;">
-          <div class="align:right"> <img src="/media/default/avatar.jpg" alt="Avatar" class="avatar" /></div>
-
-
-          <div class="col-md-8 panel-right px-0">
-            <section class="quote">
-              <figure>
-                <blockquote class="blockquote">
-                  <p>
-
-                  </p>
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                  <cite title="Source Title"></cite>
-                </figcaption>
-              </figure>
             </section>
-
-
-
-
-            <br><br>
-
-            <section class="projects">
-              <label class="fw-bold">
-                <h2 class="display-6" style="font-weight:bold">Description</h2>
-              </label>
-              <div class="container-fluid"><i><b>Hi,I a programmer with 5 plus years of professional experience in
-                    building console, desktop, and web applications. In all these years I have worked on all the major
-                    concepts of programming languages and can do tasks in cpp, csharp, java and python.
-
-
-                    I'm an expert in:<br><br>
-
-
-                    C# ( csharp ) language<br>
-
-                    C++ ( cpp ) language<br>
-                    Java Programming<br>
-                    Python Scripts<br>
-                    Solution to complex problems<br>
-                    Bug Fixes<br><br><br>
-
-
-                    Programming Fundamentals:<br><br>
-
-
-                    Data Types<br>
-
-                    Operators<br>
-                    Conditions<br>
-                    Loops<br>
-                    Numbers<br>
-                    Characters<br>
-
-              </div></i></b><br>
-
-              <label class="fw-bold">
-                <h2 class="display-6" style="font-weight:bold">Skills</h2>
-              </label>
-
-              <div class="container:flex" style="width:300px">
-                <span class="badge rounded-pill text-bg-light" style="font-size:20px;">Java Developer</span>
-                <span class="badge rounded-pill text-bg-light" style="font-size:20px;">html</span>
-
-              </div>
-          </div>
-          </stytle><br>
-          <label class="fw-bold">
-            <h2 class="display-6" style="font-weight:bold">My Projects</h2>
-          </label>
-
-          <div class="container-fluid">
-            <div class="row gy-5">
-              <div class="col-md-6">
-                <img src="/media/default/free3.jpg" alt="Portfolio image" class="img-fluid thumbnail" />
-              </div>
-              <div class="col-md-6">
-                <img src="/media/default/free.jpg" alt="Portfolio image" class="img-fluid thumbnail" />
-              </div>
-              <div class="col-md-6">
-                <img src="/media/default/pythondude.jpg" alt="Portfolio image" class="img-fluid thumbnail" />
-              </div>
-              
-             <label class="fw-bold"><h3>Videos</h3></label>
-             <video width="100" height="220" controls>
-              <source src="keyboard.mp4.mp4" type="video/mp4">
-              <source src="movie.ogg" type="video/ogg">
-           
-            </video>
-          
+            <!-- message and resume button section -->
+            <div class="container-fluid">
+              <button type="button" class="btn btn-outline-success rounded-pill">Message</button>
+              <button type="button" class="btn btn-outline-primary rounded-pill">Resume <i
+                  class="fa-solid fa-file-lines"></i></button>
             </div>
-          </div>
+            <!--ORDER BOX  -->
+            <div class="align-items-center-right">
+              <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-left h-100">
+                  <div class="col-md-10 col-lg-6 col-xl-6">
+                    <div class="card card-stepper card shadow" style="border-radius: 5px">
+                      <div class="card-header p-4">
+                        <div class="d-flex justify-content-between align-items-right">
+                          <div>
+                            <p class="text-muted mb-0">
+                              Place On <span class="text-body">12,March 2019</span>
+                            </p>
+                          </div>
+                          <div class="container" style="color: gold">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                              class="fa-solid fa-star"></i>
+                          </div>
+                          <div class="container fw-bold" style="font-style: italic; font-size: medium">
+                            5 star seller
+                          </div>
+                          <div class="container" style="font-style: bold; font-size: larger">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            <strong>{{user.freelancermodel.price}}</strong>
+                          </div>
+                        </div>
+                        <br />
+                        <div class="container_fluid fw-bold">
+                          <a href="{% url 'core:payment' %}"><button type="button" class="btn btn-success">
+                              Order now
+                            </button>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card-body p-4">
+                        <div class="d-flex flex-row mb-4 pb-2">
+                          <p class="text-muted" style="font-size: small">
+                            Tracking Status on:
+                            <span class="text-body">11:30pm, Today</span>
+                          </p>
+                          <p class="container" style="font-size: bold">
+                            <span class="text-body">{{user.freelancermodel.delivery}}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+</section>
+<!-- ORDER BOX END --
 
 
-      </div>
-    </div>
+<-- description section -->
+<section class="container-flex">
+  <label class="fw-bold">
+    <h2 class="display-6" style="font-weight: bold">Description</h2>
+  </label>
+  <div class="container-flex">
+    {{user.freelancermodel.about_me}}
   </div>
-  </div><br><br>
-<!-- --------Review section------ -->
-<section class="container-fluid"></section>
-<div class="row">
-  <!-- customer reviews -->
-  <div class="col-lg-4 col-md-5 col-12 mb-4 mb-lg-0 pr-lg-6">
-   
-    
-     </div>
-  </div>
-  <!-- customer reviews list -->
-  <div class="col-lg-8 col-md-7 col-12">
-     <div class="d-flex align-items-center justify-content-between mb-4">
-        <div>
-          <label class="fw-bold">
-            <h2 class="display-6" style="font-weight:bold">Ratings & Reviews</h2>
-          </label>
-        </div>
-      
-     </div>
-     <!-- reviews -->
-     <div class="mb-4 pb-4 border-bottom">
-        <div class="d-flex mb-3 align-items-center">
-           <img src="media/default/avatar.jpg" alt="" class="rounded-circle avatar-lg">
-           <div class="ml-2">
-              <h5 class="mb-1 fw-bold">
-                 Sohail Rahman
-               
-              </h5>
-             
-           </div>
-        </div>
-        <div class="mb-2">
-           <span class="font-14 mr-2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star text-warning"></i></span>
-           <span class="h4 fw-bold">Highly recommended</span>
-        </div>
-        <p><i>  best work</i>
-         
-        </p>
-        
-     </div>
-     <!-- reviews -->
-     <div class="mb-4 pb-4 border-bottom">
-        <div class="d-flex mb-3 align-items-center">
-           <img src="media/default/avatar.jpg" alt="" class="rounded-circle avatar-lg">
-           <div class="ml-2">
-              <h5 class="mb-1 fw-bold">
-                 shanker ramkrishna
-                 <img src="../assets/images/verified.svg" alt="">
-              </h5>
-              
-           </div>
-        </div>
-        <div class="mb-2">
-           <span class="font-14 mr-2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star text-warning"></i></span>
-           <span class="h4 fw-bold">Awesome work</span>
-        </div>
-        <p>
-       <i> his work was awesome.One of the best ever</i>
-        </p>
-      
-     </div>
-     <!-- reviews -->
-     <div class="mb-4 pb-4 border-bottom">
-        <div class="d-flex mb-3 align-items-center">
-           <img src="media/default/avatar.jpg" alt="" class="rounded-circle avatar-lg">
-           <div class="ml-2">
-              <h5 class="mb-1 fw-bold">
-                 Francis joseph kalappura 
-              </h5>
-             
-              </p>
-           </div>
-        </div>
-        <div class="mb-2">
-           <span class="font-14 mr-2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="far fa-star text-warning"></i></span>
-           <span class="h4 fw-bold">Absolutely superb!</span>
-        </div>
-        <p>
-       <i>  fast delivery and secure secure</i> 
-        </p>
-    
-     </div>
-    
-  </div>
-</div>
 </section>
 
+<!-- skills section -->
+<section class="container-fluid py-3 h-100">
+  <label class="fw-bold">
+    <h2 class="display-6" style="font-weight: bold">Skills</h2>
+  </label>
+  {% for skill in user.freelancermodel.skills.all %}
+  <div class="col-auto">
+    <span class="badge rounded-pill bg-success text-uppercase " style="width:auto;font-size:medium;">{{skill}}</span>
   </div>
+  {% empty %}
+  <div class="col">
+    <p class="card-text">No skills are added!</p>
   </div>
-  </div>
+  {% endfor %}
+</section>
 
+  <!-- <div class="container:flex" style="width: 300px">
+    <span class="badge rounded-pill text-bg-light" style="font-size: 18px"
+      >Java Developer</span
+    >
+    <span class="badge rounded-pill text-bg-light" style="font-size: 18px"
+      >html</span
+    >
+  </div> -->
 
-  {% endblock content %}
+<!-- previous projects -->
+<section class="container-fluid py-2 h-100">
+  <label class="fw-bold">
+    <h2 class="display-6" style="font-weight: bold">My Projects</h2>
+  </label>
+
+  <div class="container-fluid">
+    <div class="row gy-5">
+      <div class="col-md-6">
+        <img src="/media/default/free3.jpg" alt="Portfolio image" class="img-fluid thumbnail" />
+      </div>
+      <div class="col-md-6">
+        <img src="/media/default/free.jpg" alt="Portfolio image" class="img-fluid thumbnail" />
+      </div>
+      <div class="col-md-6">
+        <img src="/media/default/pythondude.jpg" alt="Portfolio image" class="img-fluid thumbnail" />
+      </div>
+      <div class="col-md-6">
+        <img src="/media/default/pythondude.jpg" alt="Portfolio image" class="img-fluid thumbnail" />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- --------Review section------ -->
+<section class="container-fluid py-5 h-100">
+  <div class="row">
+    <!-- customer reviews -->
+    
+  
+  <!-- customer reviews list -->
+  <div class="col-lg-8 col-md-7 col-12">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <label class="fw-bold">
+          <h2 class="display-6" style="font-weight: bold">Ratings & Reviews</h2>
+        </label>
+      </div>
+    </div>
+    <!-- reviews -->
+    <div class="mb-4 pb-4 border-bottom">
+      <div class="d-flex mb-3 align-items-center">
+        <img src="media/default/avatar.jpg" alt="" class="rounded-circle avatar-lg" />
+        <div class="ml-2">
+          <h5 class="mb-1 fw-bold">Sohail Rahman</h5>
+        </div>
+      </div>
+      <div class="mb-2">
+        <span class="font-14 mr-2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+            class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+            class="far fa-star text-warning"></i></span>
+        <span class="h4 fw-bold">Highly recommended</span>
+      </div>
+      <p><i> best work</i></p>
+    </div>
+    <!-- reviews -->
+    <div class="mb-4 pb-4 border-bottom">
+      <div class="d-flex mb-3 align-items-center">
+        <img src="media/default/avatar.jpg" alt="" class="rounded-circle avatar-lg" />
+        <div class="ml-2">
+          <h5 class="mb-1 fw-bold">
+            shanker ramkrishna
+            <img src="../assets/images/verified.svg" alt="" />
+          </h5>
+        </div>
+      </div>
+      <div class="mb-2">
+        <span class="font-14 mr-2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+            class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+            class="far fa-star text-warning"></i></span>
+        <span class="h4 fw-bold">Awesome work</span>
+      </div>
+      <p>
+        <i> his work was awesome.One of the best ever</i>
+      </p>
+    </div>
+    <!-- reviews -->
+    <div class="mb-4 pb-4 border-bottom">
+      <div class="d-flex mb-3 align-items-center">
+        <img src="media/default/avatar.jpg" alt="" class="rounded-circle avatar-lg" />
+        <div class="ml-2">
+          <h5 class="mb-1 fw-bold">Francis joseph kalappura</h5>
+        </div>
+      </div>
+      <div class="mb-2">
+        <span class="font-14 mr-2"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+            class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+            class="far fa-star text-warning"></i></span>
+        <span class="h4 fw-bold">Absolutely superb!</span>
+      </div>
+      <p>
+        <i> fast delivery and secure secure</i>
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

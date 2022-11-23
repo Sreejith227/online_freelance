@@ -24,7 +24,8 @@ urlpatterns = [
     path("freelancerproinfo/",views.FreelancerProView.as_view(), name="freelancerproinfo"),
     path("freelancerlinkacc/",views.FreelancerlinkaccView.as_view(), name="freelancerlinkacc"),
     #path("freelancerportfolio/",views.FreelancerportfolioView.as_view(), name="freelancerportfolio"),
-    path("freelancerpricing/",views.FreelancerPricing.as_view(), name="freelancerpricing"),
+    path("FreelancerCreate/",views.FreelancerCreateView.as_view(), name="becomeafreelancer"),
+    path("freelancer/<int:pk>/update/",views.FreelancerUpdateView.as_view(), name="Freelancerupdate"),
 ]   
 
 

@@ -2,10 +2,11 @@
 <section class="container-fluid">
     <div class="container py-5" style="min-height:100vh ;">
         <div class="row">
-          <h1 class="text-light text-align-center">Create Profile</h1>    
+          <h1 class="text-dark fw-bold text-center">Freelancer Registration</h1> 
+        <div class="card text-align-center container-flex">
           <div class="col-lg-6">
-            <div class="container-flex card-shadow align-items-center">
-              <div class="">
+            <div class="container-flex">
+              <div class="container" style="text-align: justify;" >
                 <form action="" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
                   <table>
@@ -20,6 +21,9 @@
           </div>
         </div>
       </div>
+      <div>
+    </div>
+  </div>
 </section>
 
 {% endblock content %}

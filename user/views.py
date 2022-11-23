@@ -5,9 +5,12 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import forms as auth_forms
+from django.contrib.auth import forms as auth_views
 
-from user.forms import UserRegisterform, ProfileForm
+from user.forms import UserRegisterform, ProfileForm , FreelancerForm 
 from user import models as user_models
+
+from user import models
 
 
 USER = get_user_model()
@@ -111,3 +114,18 @@ class FreelancerPricing(views.TemplateView):
     template_name="core/freelancer/freelancerpricing.html"  
     extra_content={
         }
+# freelancer registration create , update   
+class FreelancerCreateView(views.CreateView):
+    template_name="core/freelancer/FreelancerCreate.html" 
+    model = user_models.FreelancerModel
+    form_class = FreelancerForm
+    extra_content={
+        }
+    success_url = reverse_lazy("core:home")
+
+
+class FreelancerUpdateView(views.UpdateView):
+    template_name = "core/freelancer/Freelancerupdate.html"
+    model = user_models.FreelancerModel
+    form_class = FreelancerForm
+    success_url = reverse_lazy("core:home")

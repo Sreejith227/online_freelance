@@ -160,17 +160,17 @@
                 <div class="row justify-content-center">
                   <div class="col-auto">
                     <img
-                      src="{{freelancer.user.profilemodel.image.path}}"
+                      src="{{freelancer.user.profilemodel.image.url}}"
                       alt="..."
                       class="avatar"
-                      height="24px"
-                      width="24px"
+                      style= "height:37px;width:37px;"            
                     />
                   </div>
                   <div class="col">
-                    <h5 class="card-title">
-                      {{freelancer.user.first_name|default:"Unknown"}}
-                      {{freelancer.user.lst_name}}
+                    <h5 class="card-title fw-bold text-uppercase">
+                      {{freelancer.user.profilemodel.first_name}} 
+                      {{freelancer.user.profilemodel.last_name}}
+                      <!-- |default:"Unknown" -->
                     </h5>
                   </div>
                 </div>
@@ -216,13 +216,13 @@
               <!-- Rating end -->
               <div class="container">
                 <div class="row row-cols-auto justify-content-center">
-                  {% for skill in freelancer.skills.all %}
+                  {% for skill in user.freelancermodel.skills.all %}
                   <div class="col">
                     <span
                       class="badge rounded-pill text-bg-dark"
                       style="width: fit-content"
                     >
-                      video editor
+                    {{skill}}
                     </span>
                   </div>
                   {% endfor %}

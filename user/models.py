@@ -5,6 +5,8 @@ from django.db import models
 from core import models as core_models
 
 
+
+
 class CustomUser(AbstractUser):
     pass
 
@@ -51,6 +53,7 @@ class ProfileModel(core_models.TimeStamp, models.Model):
         upload_to="user/profile/image/", default="default/user.png"
     )
     phone_number = models.CharField(max_length=15)
+    email_id = models.CharField(max_length=150 , default="emailid")
 
     user = models.OneToOneField(USER, on_delete=models.CASCADE)
 
@@ -96,8 +99,10 @@ class FreelancerModel(core_models.TimeStamp, models.Model):
     twitter_id = models.CharField(max_length=100)
     google_id = models.CharField(max_length=100)
     instagram_id = models.CharField(max_length=100)
+    maximum_delivery_time = models.FloatField(max_length=30 ,default = 1)
     price = models.FloatField(default=0.0)
     user = models.OneToOneField(USER, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.user} ({self.current_position})"
+ 

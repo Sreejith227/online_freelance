@@ -10,3 +10,5 @@ class FeedbackForm(forms.ModelForm):
         model = models.FeedbackModel
 
         exclude = ('status',)
+
+         
