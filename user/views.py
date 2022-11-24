@@ -125,7 +125,13 @@ class FreelancerCreateView(views.CreateView):
 
 
 class FreelancerUpdateView(views.UpdateView):
-    template_name = "core/freelancer/Freelancerupdate.html"
+    template_name = "core/freelancer/freelancerupdate.html"
+    model = user_models.FreelancerModel
+    form_class = FreelancerForm
+    success_url = reverse_lazy("core:home")
+
+class FreelancerDeleteView(views.DeleteView):
+    template_name = "core/feelancer/freelancerdelete.html"
     model = user_models.FreelancerModel
     form_class = FreelancerForm
     success_url = reverse_lazy("core:home")

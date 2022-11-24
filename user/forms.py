@@ -35,7 +35,5 @@ class FreelancerForm(forms.ModelForm):
     class Meta:
         model= user_models.FreelancerModel
         exclude = (
-            "status",
-            "created_on",
-            
+           
         )

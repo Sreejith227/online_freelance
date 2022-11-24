@@ -13,7 +13,7 @@ class HomeView(views.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        freelancers = user_models.FreelancerModel.objects.filter()
+        freelancers = user_models.FreelancerModel.objects.all()
         context["freelancers"] = freelancers
         return context
 

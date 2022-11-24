@@ -216,10 +216,10 @@
               <!-- Rating end -->
               <div class="container">
                 <div class="row row-cols-auto justify-content-center">
-                  {% for skill in user.freelancermodel.skills.all %}
+                  {% for skill in freelancer.skills.all %}
                   <div class="col">
                     <span
-                      class="badge rounded-pill text-bg-dark"
+                      class="badge rounded-pill text-bg-dark text-uppercase"
                       style="width: fit-content"
                     >
                     {{skill}}
