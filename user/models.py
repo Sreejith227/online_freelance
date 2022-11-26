@@ -72,7 +72,11 @@ class FreelancerFileModel(core_models.TimeStamp, models.Model):
     file = models.FileField(upload_to="user/freelancer/docs/", blank=True, null=True)
 
     def __str__(self):
-        return f"{self.file.path}"
+        try:
+            name = self.file.path
+        except:
+            name = "No File"
+        return name
 
 
 # -------------Freelancer registration-----------#

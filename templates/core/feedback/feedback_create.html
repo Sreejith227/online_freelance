@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <section style="min-height:100vh">
-  <div class="container py-5">
-    <div class="row ">
-     <label class="fw-bold"> <h1>feedback form</h1></label>    
+  <label class="fw-bold" style="text-align:center"><h1>Feedback Form</h1></label> 
+  <div class="container-flex py-5 text-uppercase">
+    <div class="row ">   
         <div class="col-log-6">
           <div class="card">
             <div class="card-body">
@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 <table>
                   <tbody>
-                    {{form.as_p}}
+                    {{form.as_table}}
                   </tbody>
                 </table>
                 <button class="btn btn-primary" type="submit">Submit</button>

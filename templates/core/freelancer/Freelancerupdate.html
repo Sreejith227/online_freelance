@@ -10,9 +10,10 @@
               <div class="container" style="text-align: justify;" >
                 <form action="" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
-                  <table>
+                  <table class="table table-bordered">
                     <tbody>
-                      {{form.as_p}}
+                      {{form.as_table}}
+                      {{project_file_form.as_table}}
                     </tbody>
                   </table>
                   <button class="btn btn-primary" type="submit">Submit</button>

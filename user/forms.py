@@ -15,6 +15,7 @@ class UserRegisterform(UserCreationForm):
 
 # Profile Form
 
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = user_models.ProfileModel
@@ -24,16 +25,38 @@ class ProfileForm(forms.ModelForm):
             "updated_on",
         )
 
+
 class AddressForm(forms.ModelForm):
     class Meta:
         model = user_models.AddressModel
         exclude = ("status",)
-          
 
-        #  FREELANCER FORM  
+
+# ========FREELANCER FORM==========
 class FreelancerForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        freelancer = getattr(self, "instance", None)
+        # project_files = user_models.FreelancerFileModel.objects.filter(
+        #     freelancermodel__in=[freelancer]
+        # )
+        project_files = getattr(freelancer, "previous_projects", None)
+        if project_files:
+            self.fields["previous_projects"] = forms.ModelMultipleChoiceField(
+                queryset=project_files
+            )
+
     class Meta:
-        model= user_models.FreelancerModel
-        exclude = (
-           
-        )
+        model = user_models.FreelancerModel
+        exclude = ("user",)
+
+
+# ======FREELANCER PROJECT FILE FORM=========
+class FreelancerProjectFileForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["file"].label = "Add project files"
+
+    class Meta:
+        model = user_models.FreelancerFileModel
+        fields = ["file"]

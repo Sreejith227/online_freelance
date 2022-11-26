@@ -18,14 +18,19 @@ urlpatterns = [
     
 
 
-    #freelancer registration 
-    path("freelancerregistartion/",views.freelancerregistartion.as_view(), name="freelancerregistartion"),
-    path("freelancersignup/",views.FreelancerCreateView.as_view(), name="freelancersignup"),
-    path("freelancerproinfo/",views.FreelancerProView.as_view(), name="freelancerproinfo"),
-    path("freelancerlinkacc/",views.FreelancerlinkaccView.as_view(), name="freelancerlinkacc"),
+    # #freelancer registration 
+    # path("freelancerregistartion/",views.freelancerregistartion.as_view(), name="freelancerregistartion"),
+    # path("freelancersignup/",views.FreelancerCreateView.as_view(), name="freelancersignup"),
+    # path("freelancerproinfo/",views.FreelancerProView.as_view(), name="freelancerproinfo"),
+    # path("freelancerlinkacc/",views.FreelancerlinkaccView.as_view(), name="freelancerlinkacc"),
     #path("freelancerportfolio/",views.FreelancerportfolioView.as_view(), name="freelancerportfolio"),
-    path("FreelancerCreate/",views.FreelancerCreateView.as_view(), name="becomeafreelancer"),
-    path("freelancer/<int:pk>/update/",views.FreelancerUpdateView.as_view(), name="Freelancerupdate"),
+    path("freelancercreate/",views.FreelancerCreateView.as_view(), name="freelancercreate"),
+    path("freelancer/<int:pk>/update/",views.FreelancerUpdateView.as_view(), name="freelancerupdate"),
+    path("freelancer/<int:pk>/delete/",views.FreelancerDeleteView.as_view(), name="freelancerdelete"),
 ]   
+
+
+
+
 
 

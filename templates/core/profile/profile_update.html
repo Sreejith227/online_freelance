@@ -15,7 +15,8 @@
                 {% csrf_token %}
                 <table>
                   <tbody>
-                    {{form.as_p}}
+                    {{form.as_table}}
+                    
                   </tbody>
                 </table>
                 <button class="btn btn-primary" type="submit">Submit</button>

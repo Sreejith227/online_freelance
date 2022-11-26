@@ -1,27 +1,26 @@
 {% extends 'base.html' %} {% block content %}
 <section class="container-fluid">
-    <div class="container py-5" style="min-height:100vh ;">
-        <div class="row">
-          <h1 class="text-dark fw-bold text-center">Freelancer Registration</h1> 
-        <div class="card text-align-center container-flex">
-          <div class="col-lg-6">
-            <div class="container-flex">
-              <div class="container" style="text-align: justify;" >
-                <form action="" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <table>
-                    <tbody>
-                      {{form.as_p}}
-                    </tbody>
-                  </table>
-                  <button class="btn btn-primary" type="submit">Submit</button>
-                </form>
-              </div>
+  <div class="container py-5" style="min-height:100vh ;">
+    <div class="row">
+        <h1 class="text-dark fw-bold text-center">FREELANCER REGISTRATION</h1> 
+      <div class="card text-align-center container-flex">
+        <div class="col-lg-6">
+          <div class="container-flex">
+            <div class="container" style="text-align: justify;" >
+              <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-bordered">
+                  <tbody>
+                    {{form.as_table}}
+                    {{project_file_form.as_table}}
+                  </tbody>
+                </table>
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
-      <div>
     </div>
   </div>
 </section>

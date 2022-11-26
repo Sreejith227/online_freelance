@@ -7,7 +7,7 @@ from django.views import generic as views
 from django.contrib.auth import forms as auth_forms
 from django.contrib.auth import forms as auth_views
 
-from user.forms import UserRegisterform, ProfileForm , FreelancerForm 
+from user.forms import UserRegisterform, ProfileForm , FreelancerForm, FreelancerProjectFileForm
 from user import models as user_models
 
 from user import models
@@ -114,24 +114,57 @@ class FreelancerPricing(views.TemplateView):
     template_name="core/freelancer/freelancerpricing.html"  
     extra_content={
         }
-# freelancer registration create , update   
+
+
+
+
+# freelancer registration, create , update  ,delete 
+
+# ======FREELANCER CREATE VIEW======#
 class FreelancerCreateView(views.CreateView):
-    template_name="core/freelancer/FreelancerCreate.html" 
+    template_name="core/freelancer/freelancercreate.html" 
     model = user_models.FreelancerModel
     form_class = FreelancerForm
-    extra_content={
-        }
+    extra_context = {
+        "project_file_form" : FreelancerProjectFileForm
+    }
     success_url = reverse_lazy("core:home")
 
+    def form_valid(self, form):
+        project_file_form = FreelancerProjectFileForm(self.request.POST, self.request.FILES)
+        form.instance.user = self.request.user
+        if project_file_form.is_valid():
+            data = project_file_form.cleaned_data
+            file = data["file"]
+            if file and form.instance.id:
+                file = project_file_form.save()
+                form.instance.previous_projects.add(file)
+        return super().form_valid(form)
 
+
+
+#============FREELANCER UPDATE VIEW ========
 class FreelancerUpdateView(views.UpdateView):
     template_name = "core/freelancer/freelancerupdate.html"
     model = user_models.FreelancerModel
     form_class = FreelancerForm
+    extra_context = {
+        "project_file_form" : FreelancerProjectFileForm
+    }
     success_url = reverse_lazy("core:home")
 
+    def form_valid(self, form):
+        project_file_form = FreelancerProjectFileForm(self.request.POST, self.request.FILES)
+        if project_file_form.is_valid():
+            data = project_file_form.cleaned_data
+            file = data["file"]
+            if file:
+                file = project_file_form.save()
+                form.instance.previous_projects.add(file)
+        return super().form_valid(form)
+
 class FreelancerDeleteView(views.DeleteView):
-    template_name = "core/feelancer/freelancerdelete.html"
+    template_name = "core/freelancer/freelancerdelete.html"
     model = user_models.FreelancerModel
     form_class = FreelancerForm
     success_url = reverse_lazy("core:home")

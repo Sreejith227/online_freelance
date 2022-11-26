@@ -4,7 +4,7 @@
 <div class="container text-right">
   <div class="container align-items-left text-left">
     <div class="row justify-content-center align-items-left h-100">
-      <div class="col-md-10 col-4 col-xl-9">
+      <div class="col-md-10 col-4 col-xl-10">
         {% if user.freelancermodel %}
         <div class="card card-stepper card shadow" style="border-radius: 5px">
           <div class="card-header p-4">
@@ -64,14 +64,14 @@
           </div>
         </div>
         <!-- profile picture end -->
-        <h2 class="display-5 fw-bold text-uppercase text-center">{{user.profilemodel.first_name}}
-          {{user.profilemodel.last_name}}</h2>
-        <p class="display-7 text-capitalize text-center" style="font-weight: bold">
+        <h4 class="display-6 fw-bold text-uppercase text-center">{{user.profilemodel.first_name}}
+          {{user.profilemodel.last_name}}</h4>
+        <p class="display-7 fw-bold text-uppercase text-center" style="font-weight: bold">
           {{user.freelancermodel.current_position}}
         </p>
       </div>
       <!-- section social media -->
-      <section class="justify-content-center">
+      <section class="justify-content-center container-flex">
 
         <div class="container-flex text-center">
           <a class="btn text-white btn-floating m-1" style="background-color: #3b5998" href="#!" role="button">
@@ -87,17 +87,53 @@
         </div>
       </section>
       <!-- message and resume button section -->
-      <div class="container justify-content-between text-center">
-        <button type="button" class="btn btn-outline-success rounded-pill">Message</button>
-        <button type="button" class="btn btn-outline-primary rounded-pill">Resume <i
-            class="fa-solid fa-file-lines"></i></button>
-      </div>
+      <section class="container-flex">
+        <!-- Resume Modal START -->
+        <div class="modal fade" 
+          id="resume_modal_" 
+          data-bs-backdrop="static" 
+          data-bs-keyboard="false" 
+          tabindex="-1" 
+          aria-labelledby="resume_modal_label" 
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="resume_modal_label">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="{{user.freelancermodel.resume.url}}" alt="" class="img-fluid">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Resume Modal END -->
+        <div class="container justify-content-between text-center">
+          <button type="button" class="btn btn-outline-success rounded-pill">Message</button>
+          <button 
+            type="button" 
+            class="btn btn-outline-primary rounded-pill"
+            data-bs-toggle="modal" 
+            data-bs-target="#resume_modal_"
+          >
+            Resume 
+            <i class="fa-solid fa-file-lines"></i>
+            </button>
+        </div>
+      </section>
     </div>
+  </section>
 </section><hr/>
 
 <!-- <-- description section -->
 
-<section class="container-flex">
+<section class="container-flex" style="height:20vh">
   <label class="fw-bold">
     <h2 class="display-6" style="font-weight: bold">Description</h2>
   </label>
@@ -107,7 +143,7 @@
 </section><hr/>
 
 <!-- skills section -->
-<section class="container-flex py-3 h-100">
+<section class="container-flex py-3 h-100" style="height:20vh">
   <label class="fw-bold">
     <h2 class="display-6" style="font-weight: bold">Skills</h2>
   </label>
@@ -127,12 +163,12 @@
   <label class="fw-bold">
     <h2 class="display-6" style="font-weight: bold">My Projects</h2>
   </label>
-  {% for project in user.freelancermodel.previous_projects.all %}
   <div class="container-fluid">
+    {% for project in user.freelancermodel.previous_projects.all %}
     <div class="row gy-5">
       <div class="col-md-6">
-        <img src="{{freelancermodel.previous_projects.url}}" alt="projects"
-          style="width: 250px; height: 250px" />
+        <img src="{{project.file.url}}" alt="projects"
+          style="width: 400px; height: 250px" />
       </div>
     </div>
     {% empty %}
@@ -144,7 +180,6 @@
   {% else %}
   <a href="" class="btn btn-primary">Become a Freelancer</a>
   {% endif %}
-
 </section><hr/>
 <!-- --------Review section------ -->
 <section class="container-fluid py-5 h-100">
@@ -215,6 +250,4 @@
       </div>
     </div>
 </section>
-
-
 {% endblock content %}

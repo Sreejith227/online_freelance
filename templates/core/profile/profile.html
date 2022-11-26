@@ -32,18 +32,34 @@
             </div>
           </div><br><br>
           <div class="container">
+            {% if user.freelancermodel %}
             <div class="row-3">
               <div class="col-3">
-              <a href="{% url 'core:freelancerregistartion' %}" class="day">
+              <a href="{% url 'user:freelancerupdate' user.freelancermodel.id %}" class="day">
                 <button type="button" class="btn btn-success padding fw-bold" data-mdb-ripple-color="dark" style="z-index: 1">
+                  Update Freelancer Profile
+                </button></a>
+              </div>
+            </div>
+            <div class="row-2 float-end">
+              <div class="col-3">
+                <a href="{% url 'user:freelancerdelete' %}" class="day">
+                  <button type="button" class="btn btn-outline-danger padding fw-bold" data-mdb-ripple-color="dark" style="z-index: 1">
+                    Delete Freelancer Profile
+                  </button></a>
+                </div>
+              </div>
+            {% else %}
+            <div class="row-3">
+              <div class="col-3">
+              <a href="{% url 'user:freelancercreate' %}" class="day">
+                <button type="button" class="btn btn-outline-success padding fw-bold" data-mdb-ripple-color="dark" style="z-index: 1">
                   Sign up as Freelancer
                 </button></a>
               </div>
-
             </div>
+            {% endif %}
           </div>
-
-
           <div class="card-body container-flex text-dark">
             <div class="mb-5">
               <div class="p-4 card-shadow" style="background-color:whitesmoke">
@@ -58,11 +74,8 @@
 
               </div>
             </div>
-
-   
             {% else %}
             <div class="text-center text-align-justify" style="width:max-content;">
-      
               <label style="font-size:smaller;"><a href="{% url 'user:profile_create' %}">
                   Create Profile 
                 </a>
