@@ -7,6 +7,7 @@ from core import models as core_models
 
 
 
+
 class CustomUser(AbstractUser):
     pass
 

@@ -1,25 +1,23 @@
 {% extends 'base.html' %} {% block content %}
-<section class="py-5">
-    <div class="container">
+<section class="py-5 min-height:100vh">
+    <div class="container min-height:100vh">
       <div class="row">
         <div class="col">
-          <h2 class="text-center">Delete Your Freelancer Profile</h2>
+          <h2 class="text-center fw-bold">Delete Your Freelancer Profile</h2>
           <hr />
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card">
+      </div> 
+        <div class="align-items-center">
+          <div class="card align-items-center">
             <div class="card-body">
               <form action="" method="post">
                 {% csrf_token %}
-                <h5>Are you sure want to delete yor freelancer account Permanently?</h5>
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <h5>Your Freelancer account will be deleted permanently</h5>
+               <button class="btn btn-danger" type="submit">Delete</button>
               </form>
             </div>
           </div>
         </div>
-      </div>
     </div>
   </section>
 

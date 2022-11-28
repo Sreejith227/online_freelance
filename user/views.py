@@ -13,6 +13,7 @@ from user import models as user_models
 from user import models
 
 
+
 USER = get_user_model()
 
 # UserCreateView
@@ -77,7 +78,7 @@ class ProfileUpdateView(views.UpdateView):
 
     
 
-class ProfileDetailView(views.TemplateView):
+class ProfileDetailView(views.DetailView):
     template_name = "core/profile/profile.html"
     model = user_models.ProfileModel
     context_object_name = "profile"
@@ -163,8 +164,8 @@ class FreelancerUpdateView(views.UpdateView):
                 form.instance.previous_projects.add(file)
         return super().form_valid(form)
 
+# ====Freelancer delete=======
 class FreelancerDeleteView(views.DeleteView):
     template_name = "core/freelancer/freelancerdelete.html"
     model = user_models.FreelancerModel
-    form_class = FreelancerForm
     success_url = reverse_lazy("core:home")
