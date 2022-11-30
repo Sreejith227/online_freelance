@@ -15,10 +15,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold" id="nav-link" href="{% url 'core:feedback_create' %}">feedback</a>
-        </li>
-
-
-       
+        </li>   
         {% if user.is_authenticated %} 
         
         <a href="{% url 'user:profile_detail' user.profilemodel.id %}" class="btn btn-outline-success  ms-2 me-2 text-dark" style="height:fit-content">
@@ -38,36 +35,41 @@
           Sign In
         </a>
       {% endif %}
-
-
-       </li>
-
-
-
+      </li> 
+    </li>
+    <!-- dropdown jobroles -->
+    <li class="nav-item dropdown">
+      <a class="btn btn-outline-primary float-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Job roles
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#"></a></li>      
       </ul>
+    </li>
+  </ul>
+</ul>
+    <!-- search bar-- -->
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search for services" aria-label="Search"
-          style="width:500px;" />
+          style="width:400px;" />
         <button class="btn btn-outline-success fw-bold" type="submit">Search</button>
       </form>
+      <!-- searchbar end -->
     </div>
   </div>
 </nav>
+<!-- second navbar -->
 <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid" style="height:40px">
-    <span class="navbar-text">
-      
-      <b><i class="fa-solid fa-bell" style="color:blue"><a class="btn btn-info"> <b><i class="fa-solid fa-bell"
-                style="color:blue"></i></a></i></b>
+  <div class="container-fluid" style="height:24px">
+    <span class="navbar-item">
+      <a class="container-fluid"><i class="fa-solid fa-bell"
+                style="color:blue"></i></a>
       &nbsp;&nbsp;
-      <span class="navbar-text">
-        <strong> <i class="fa-regular fa-message" style="color:blue"></i></strong>
-        <label class="nav-item">
-          <a href="{% url 'core:freelancerregistartion' %}"><button type="button" class="btn btn-success ">Become a
+      <span class="navbar-item">
+        <i class="fa-regular fa-message" style="color:blue"></i></span>
+        <span class="nav-item container-fluid">
+          <a href="{% url 'user:freelancercreate' %}"><button type="button" class="btn btn-success ">Become a
               Freelancer</button></a>
-
-          &nbsp;&nbsp;&nbsp;
-        </label></span>
-        
-  </div>
+        </span>
+      </div>
 </nav>

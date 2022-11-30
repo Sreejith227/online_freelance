@@ -14,7 +14,9 @@ class HomeView(views.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         freelancers = user_models.FreelancerModel.objects.all()
+        job_roles = user_models.FreelancerModel.objects.all()
         context["freelancers"] = freelancers
+        context["job_roles"] = job_roles
         return context
 
 
@@ -60,7 +62,14 @@ class freelancerregistartion(views.TemplateView):
 #         }
 class FreelancerportfolioView(views.TemplateView):
     template_name = "core/freelancer/freelancerportfolio.html"
-    extra_content = {}
+    
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     freelancers = user_models.FreelancerModel.objects.all()
+    #     job_roles = user_models.FreelancerModel.objects.all()
+    #     context["freelancers"] = freelancers
+    #     context["job_roles"] = job_roles
+    #     return context
 
 
 class FreelancerPayment(views.TemplateView):

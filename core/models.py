@@ -34,8 +34,7 @@ class FeedbackModel(TimeStamp, models.Model):
 #     def __str__(self):
 #         return f"{self.name}"
 
-
-class FreelancerCategory(models.Model):
+class FreelancerCategoryModel(models.Model):
     name = models.CharField(max_length=64)
     status = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -45,4 +44,6 @@ class FreelancerCategory(models.Model):
         return f"{self.name}"
 
 
-        
+class MessagingModel(models.Model):
+    message = models.TextField(max_length=500)
+    

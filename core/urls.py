@@ -15,7 +15,8 @@ urlpatterns=[
     path("freelancerportfolio/",views.FreelancerportfolioView.as_view(), name="freelancerportfolio"),
     path("payment/",views.FreelancerPayment.as_view(), name="payment"),
     path("requirements/",views.BuyerRequirements.as_view(), name="requirements"),
-    # path("freelancerpricing/",views.FreelancerPricing.as_view(), name="freelancerpricing"),
+    #path("freelancerpricing/",views.FreelancerPricing.as_view(), name="freelancerpricing"),
+    
    
     
 ]   
